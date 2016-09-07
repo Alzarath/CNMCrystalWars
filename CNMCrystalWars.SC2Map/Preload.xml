@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Preload>
+<Actor id="SYSTEM_ActorConfig"/>
+<Actor id="XelNaga_Cavern_Cliff_Pillar" Variations="1"/>
+<Terrain id="AiurEx1"/>
+<Unit id="PickupPalletGas"/>
+</Preload>

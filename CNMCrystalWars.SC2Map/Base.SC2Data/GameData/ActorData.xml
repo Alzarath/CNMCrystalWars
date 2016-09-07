@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CActorUnit id="VespeneCrystal" parent="GenericUnitStandardNoAutoSoundLinks" unitName="VespeneCrystal">
+        <Macros value="AntiGravDeathRemoveMacro"/>
+        <On Terms="ActorCreation" Send="Create PickupGasCanisterGlow"/>
+        <Model value="PickupPalletGas"/>
+        <BuildModel value="PickupPalletGas"/>
+        <DeathArray index="Normal" ModelLink="PickupPalletGasDeath"/>
+        <PlacementModel value="PickupPalletGas"/>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <StatusBarFlags index="Duration" value="0"/>
+    </CActorUnit>
+</Catalog>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CUnit id="VespeneCrystal" parent="ITEM">
+        <FlagArray index="Turnable" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
+        <FogVisibility value="Snapshot"/>
+        <Collide index="Structure" value="1"/>
+        <Height value="0.25"/>
+        <AbilArray Link="PickupPalletGas2"/>
+        <MinimapRadius value="0.375"/>
+        <EditorCategories value="ObjectType:Item,ObjectFamily:Melee"/>
+        <LeaderAlias value=""/>
+    </CUnit>
+</Catalog>

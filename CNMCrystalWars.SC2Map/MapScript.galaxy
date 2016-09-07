@@ -1,0 +1,129 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   Just Another StarCraft II Map
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Constants
+//--------------------------------------------------------------------------------------------------
+const int gv_crystalCount = 200;
+const int gv_crystalTypes = 3;
+
+//--------------------------------------------------------------------------------------------------
+// Global Preset Declarations
+//--------------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------------------
+// Global Function Declarations
+//--------------------------------------------------------------------------------------------------
+void gf_GenerateCrystal (point lp_point, string lp_type);
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_MeleeInitialization;
+trigger gt_GenerateCrystals;
+
+//--------------------------------------------------------------------------------------------------
+// Global Presets
+//--------------------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------------------
+// Global Functions
+//--------------------------------------------------------------------------------------------------
+void gf_GenerateCrystal (point lp_point, string lp_type) {
+    // Variable Declarations
+    string lv_crystalType;
+    int lv_random;
+
+    // Variable Initialization
+    lv_crystalType = lp_type;
+
+    // Implementation
+    if ((lp_type == "RandomCrystal")) {
+        lv_random = RandomInt(1, gv_crystalTypes);
+        if ((lv_random == 1)) {
+            lv_crystalType = "MineralCrystal";
+        }
+        else if ((lv_random == 2)) {
+            lv_crystalType = "VespeneCrystal";
+        }
+        else if ((lv_random == 3)) {
+            lv_crystalType = "TerrazineCrystal";
+        }
+    }
+
+    UnitCreate(1, (lv_crystalType), 0, 0, lp_point, 270.0);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Melee Initialization
+//--------------------------------------------------------------------------------------------------
+bool gt_MeleeInitialization_Func (bool testConds, bool runActions) {
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MeleeInitialization_Init () {
+    gt_MeleeInitialization = TriggerCreate("gt_MeleeInitialization_Func");
+    TriggerAddEventMapInit(gt_MeleeInitialization);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Generate Crystals
+//--------------------------------------------------------------------------------------------------
+bool gt_GenerateCrystals_Func (bool testConds, bool runActions) {
+    int auto74B732C5_ae;
+    int auto74B732C5_ai;
+
+    // Variable Declarations
+    int lv_crystal;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto74B732C5_ae = gv_crystalCount;
+    auto74B732C5_ai = 1;
+    lv_crystal = 1;
+    for ( ; ( (auto74B732C5_ai >= 0 && lv_crystal <= auto74B732C5_ae) || (auto74B732C5_ai <= 0 && lv_crystal >= auto74B732C5_ae) ) ; lv_crystal += auto74B732C5_ai ) {
+        gf_GenerateCrystal(RegionRandomPoint(RegionFromId(2)), "VespeneCrystal");
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_GenerateCrystals_Init () {
+    gt_GenerateCrystals = TriggerCreate("gt_GenerateCrystals_Func");
+    TriggerAddEventMapInit(gt_GenerateCrystals);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_MeleeInitialization_Init();
+    gt_GenerateCrystals_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitTriggers();
+}

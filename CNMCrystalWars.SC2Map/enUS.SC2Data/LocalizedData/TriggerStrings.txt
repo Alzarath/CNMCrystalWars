@@ -1,0 +1,16 @@
+﻿FunctionDef/Grammar/A9584E2E=Generate a crystal of type ~type~ at ~point~
+FunctionDef/Name/A9584E2E=Generate Crystal
+ParamDef/Name/66EB3301=Type
+ParamDef/Name/BF65FDA3=Point
+Preset/Name/0D3085E5=Crystal Type
+PresetValue/Name/77F6EA76=Terrazine
+PresetValue/Name/B03C2E15=Random
+PresetValue/Name/C63549FB=Mineral
+PresetValue/Name/DA80B3CC=Vespene
+Trigger/Name/18E2E4BC=Generate Crystals
+Trigger/Name/C08B8618=Melee Initialization
+Variable/Name/13B6E040=Crystal
+Variable/Name/58924A3F=Crystal Type
+Variable/Name/7EF3BB98=Crystal Types
+Variable/Name/8DDB6F1C=Crystal Count
+Variable/Name/E16C199F=Random
